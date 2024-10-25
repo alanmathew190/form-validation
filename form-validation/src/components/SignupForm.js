@@ -64,47 +64,50 @@ function SignupForm() {
       <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
         {/* Username */}
-        <div>
+        <div className="loginDiv">
           <label>Username:</label>
           <input
             type="text"
             name="username"
+            placeholder="Enter your name"
             value={formData.username}
             onChange={handleInputChange}
           />
           {errors.username && <p className="error">{errors.username}</p>}
-        </div>
 
-        {/* Email */}
-        <div>
+          {/* Email */}
+          <br></br>
           <label>Email:</label>
           <input
             type="email"
             name="email"
+            placeholder="Enter your email"
             value={formData.email}
             onChange={handleInputChange}
           />
           {errors.email && <p className="error">{errors.email}</p>}
-        </div>
+          <br></br>
 
-        {/* Password */}
-        <div>
+          {/* Password */}
+
           <label>Password:</label>
           <input
             type="password"
             name="password"
+            placeholder="Enter a password"
             value={formData.password}
             onChange={handleInputChange}
           />
           {errors.password && <p className="error">{errors.password}</p>}
-        </div>
+          <br></br>
 
-        {/* Confirm Password */}
-        <div>
+          {/* Confirm Password */}
+
           <label>Confirm Password:</label>
           <input
             type="password"
             name="confirmPassword"
+            placeholder="Re-enter your password"
             value={formData.confirmPassword}
             onChange={handleInputChange}
           />
