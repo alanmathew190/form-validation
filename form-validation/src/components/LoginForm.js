@@ -37,6 +37,10 @@ function LoginForm() {
     }
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <div className="login-form">
       <h2>Login</h2>
@@ -44,6 +48,7 @@ function LoginForm() {
         {/* Email */}
         <div className="loginDiv">
           <label>Email:</label>
+          <br></br>
           <input
             type="email"
             name="email"
@@ -58,13 +63,16 @@ function LoginForm() {
           <br></br>
           <label>Password:</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
-            placeholder="Enter your password"
+            placeholder="Enter a password"
             value={formData.password}
             onChange={handleInputChange}
             required
           />
+          <label class="passl" onClick={togglePasswordVisibility} type="button">
+            {showPassword ? "Hide" : "Show"}
+          </label>
           {errors.password && <p className="error">{errors.password}</p>}
         </div>
         <button type="submit">Login</button>

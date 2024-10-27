@@ -7,6 +7,8 @@ function SignupForm() {
     password: "",
     confirmPassword: "",
   });
+  
+const [showPassword, setShowPassword] = useState(false);
 
   const [errors, setErrors] = useState({});
 
@@ -18,6 +20,9 @@ function SignupForm() {
     });
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  }
   const validateForm = () => {
     let validationErrors = {};
 
@@ -72,48 +77,70 @@ function SignupForm() {
             placeholder="Enter your name"
             value={formData.username}
             onChange={handleInputChange}
+            required
           />
           {errors.username && <p className="error">{errors.username}</p>}
-
           {/* Email */}
           <br></br>
           <label>Email:</label>
+          <br></br>
           <input
             type="email"
             name="email"
             placeholder="Enter your email"
             value={formData.email}
             onChange={handleInputChange}
+            required
           />
           {errors.email && <p className="error">{errors.email}</p>}
           <br></br>
 
-          {/* Password */}
-
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter a password"
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-          {errors.password && <p className="error">{errors.password}</p>}
+          <div class="password">
+            {/* Password */}
+            <label>Password:</label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Enter a password"
+              value={formData.password}
+              onChange={handleInputChange}
+              required
+            />
+            <label
+              class="pass"
+              onClick={togglePasswordVisibility}
+              type="button"
+            >
+              {showPassword ? "Hide" : "Show"}
+            </label>
+            {errors.password && <p className="errorpp">{errors.password}</p>}
+          </div>
           <br></br>
-
           {/* Confirm Password */}
+          <div class="password">
+            <label>Confirm Password:</label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="confirmPassword"
+              placeholder="Re-enter your password"
+              value={formData.confirmPassword}
+              onChange={handleInputChange}
+              required
+            />
+            <label
+              class="pass"
+              onClick={togglePasswordVisibility}
+              type="button"
+      
+            >
+              {showPassword ? "Hide" : "Show"}
+            </label>
 
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            placeholder="Re-enter your password"
-            value={formData.confirmPassword}
-            onChange={handleInputChange}
-          />
-          {errors.confirmPassword && (
-            <p className="error">{errors.confirmPassword}</p>
-          )}
+            {errors.confirmPassword && (
+              <p className="errorpp">{errors.confirmPassword}</p>
+            )}
+          </div>
+          <br></br>
         </div>
 
         <button type="submit">Signup</button>
