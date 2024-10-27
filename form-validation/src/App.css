@@ -23,8 +23,8 @@ nav ul {
   justify-content: space-around;
   background-color: #284463;
   border-radius: 10px;
-  width: 80%;
-  margin-left: 34px;
+  width: 70%;
+  margin: auto;
 }
 
 nav ul li {
@@ -35,7 +35,7 @@ nav ul li {
 }
 nav ul li:hover{
   background-color:aqua;
-    width: 70%;
+    width: 30%;
     text-align: center;
     transition: .5s ease-in;
 }
