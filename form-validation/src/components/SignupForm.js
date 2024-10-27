@@ -108,7 +108,7 @@ const [showPassword, setShowPassword] = useState(false);
             />
             <label
               class="pass"
-              onClick={togglePasswordVisibility}
+              onClick={togglePasswordVisibility}z
               type="button"
             >
               {showPassword ? "Hide" : "Show"}

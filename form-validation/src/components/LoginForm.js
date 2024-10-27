@@ -19,9 +19,12 @@ function LoginForm() {
       validationErrors.email = "Invalid email format";
     }
 
-    if (!formData.password) {
-      validationErrors.password = "Password is required";
-    }
+     if (!formData.password) {
+       validationErrors.password = "Password is required";
+     } else if (formData.password.length < 6) {
+       validationErrors.password ="Password must be at least 6 characters long";
+     }
+
 
     setErrors(validationErrors);
     return Object.keys(validationErrors).length === 0;
